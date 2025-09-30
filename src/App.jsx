@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Nav from './components/Nav'
 import MusicBar from './components/MusicBar'
+import AIStatusDashboard from './components/AIStatusDashboard'
 import Leaderboard from './components/Leaderboard'
 import StatsHeader from './components/StatsHeader'
 
@@ -28,6 +29,13 @@ export default function App(){
             desc="Solve clever riddles and build your streak!" 
             difficulty="Easy-Hard"
             color="from-blue-500 to-blue-600"
+          />
+          <GameCard 
+            title="🤖 AI Riddles" 
+            to="/ai-riddles" 
+            desc="Unlimited AI-generated riddles!" 
+            difficulty="Dynamic"
+            color="from-purple-500 to-purple-600"
           />
           <GameCard 
             title="🔤 Word Game" 
@@ -92,6 +100,9 @@ export default function App(){
         </section>
       </main>
       <MusicBar />
+      
+      {/* AI Status Dashboard */}
+      <AIStatusDashboard />
     </div>
   )
 }

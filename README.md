@@ -1,17 +1,30 @@
 # E.Vol
 
-🧠 **Enhanced Multi-Game Platform** - Riddles, Word Games, Emoji Puzzles, Chess, Strategy, Trivia with modern UI, music integration, competitive scoring, and dark mode support.
+🧠 **AI-Enhanced Multi-Game Platform** - Riddles, Word Games, Emoji Puzzles, Chess, Strategy, Trivia with modern UI, music integration, competitive scoring, local AI inference, and dark mode support.
 
 ## ✨ Features
 
-### 🎮 **7 Game Types**
+### 🎮 **13 Game Types**
 - **🧩 Riddles** - Logic puzzles with difficulty levels and categories
+- **🤖 AI Riddles** - Unlimited AI-generated riddles with dynamic content
 - **🔤 Word Game** - Hangman-style letter guessing
 - **😄 Emoji Guess** - Decode emoji puzzles and phrases  
 - **🎓 Trivia** - "Are You Smarter Than a 5th Grader?" questions
 - **♟️ Chess** - Interactive chessboard with drag-and-drop
 - **🧠 2048** - Brain puzzle with keyboard controls
 - **🔴 Connect Four** - Strategic tile-dropping game
+- **❓ Twenty Questions** - Animal guessing with progressive questions
+- **🔢 Sudoku** - Classic number puzzle with validation
+- **📝 Wordle** - Word guessing with color-coded feedback
+- **🎭 Burble** - Riddle and word puzzles with hints
+- **🕵️ Imposter** - Multiplayer social deduction game
+
+### 🤖 **AI-Powered Content Generation**
+- **Local DeepSeek-V3 inference** for ultra-fast generation
+- **API fallback** with automatic switching
+- **Intelligent caching** for improved performance
+- **Performance monitoring** with real-time metrics
+- **Unlimited dynamic content** across all game types
 
 ### 🎯 **Game Mechanics**
 - **Difficulty-based scoring** (Easy: 10-15pts, Medium: 20-25pts, Hard: 30-40pts)
@@ -33,6 +46,8 @@
 - **Real-time leaderboards** (global + game-specific)
 - **Score persistence** across sessions
 - **User statistics** and performance tracking
+- **Multiplayer lobbies** with real-time synchronization (Imposter game)
+- **Firebase Realtime Database** for live multiplayer experiences
 
 ### 🎵 **Music Integration**
 - **YouTube, Spotify, Apple Music** link support
@@ -44,16 +59,65 @@
 1. **Setup Firebase:**
    ```bash
    cp .env.example .env
-   # Fill in your Firebase project values
+   # Your Firebase configuration is already set up!
    ```
 
-2. **Install & Run:**
+2. **Enable Firebase Services:**
+   - Go to [Firebase Console](https://console.firebase.google.com/)
+   - Select project `evol-b02ac`
+   - **Firestore Database** → "Start in test mode" → Create
+   - **Realtime Database** → Create → Choose region → Start in test mode  
+   - **Authentication** → Enable Google Sign-In + Email/Password
+
+3. **Install & Run:**
    ```bash
    npm install
    npm run dev
    ```
 
-3. **Visit:** http://localhost:5173
+4. **Visit:** http://localhost:5173
+
+## 🔥 Firebase Integration
+
+Your project uses Firebase for:
+- **🔐 Authentication** - Google OAuth and Email/Password login
+- **📊 Firestore** - Score storage and leaderboards  
+- **⚡ Realtime Database** - Live multiplayer lobbies for Imposter game
+- **🔄 Real-time sync** - Instant updates across all connected players
+
+### Firebase Configuration
+All Firebase services are pre-configured with your project:
+- **Project ID**: `evol-b02ac`
+- **Database URL**: `https://evol-b02ac-default-rtdb.firebaseio.com`
+- **Domain**: `evol-b02ac.firebaseapp.com`
+
+## 🤖 AI Configuration
+
+### Quick Setup (API Mode)
+Your DeepSeek API key is already configured! For usage:
+1. **Add credits** to your DeepSeek account at [platform.deepseek.com](https://platform.deepseek.com/)
+2. **Start gaming** - AI games will work automatically
+3. **Monitor status** - Check the AI Status Dashboard in the bottom-right
+
+### Advanced Setup (Local AI)
+For unlimited usage and faster inference:
+```bash
+cd local-ai-server
+./deploy.sh setup
+./deploy.sh dev
+```
+
+See `DEEPSEEK_SETUP.md` for detailed configuration guide.
+
+## 🚀 Local AI Server
+
+Deploy DeepSeek-V3 locally for:
+- ⚡ **Ultra-fast inference** (< 100ms response times)
+- 💰 **No API costs** (unlimited usage)
+- 🔒 **Complete privacy** (no data sent to external APIs)
+- 🎯 **Gaming optimized** (specialized prompts for game content)
+
+**Requirements**: NVIDIA GPU with 40GB+ VRAM recommended
 
 ## 🔧 Dependencies
 

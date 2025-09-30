@@ -1,0 +1,176 @@
+version: '3.8'
+
+services:
+  # Local AI Server (Development)
+  deepseek-dev:
+    build:
+      context: .
+      target: development
+    container_name: deepseek-v3-dev
+    ports:
+      - "8000:8000"
+      - "8888:8888"  # Jupyter notebook
+    volumes:
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - .:/app
+    environment:
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - DEEPSEEK_MODEL_PATH=/app/models/deepseek-v3-fp8
+      - AI_SERVER_PORT=8000
+      - CUDA_VISIBLE_DEVICES=all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+    networks:
+      - ai-network
+
+  # Local AI Server (Production)
+  deepseek-prod:
+    build:
+      context: .
+      target: production
+    container_name: deepseek-v3-prod
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./models:/app/models:ro
+      - ./logs:/app/logs
+    environment:
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - DEEPSEEK_MODEL_PATH=/app/models/deepseek-v3-fp8
+      - AI_SERVER_PORT=8000
+      - CUDA_VISIBLE_DEVICES=all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+        limits:
+          memory: 32G
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - ai-network
+    profiles:
+      - production
+
+  # SGLang Optimized Server
+  deepseek-sglang:
+    build:
+      context: .
+      target: sglang
+    container_name: deepseek-v3-sglang
+    ports:
+      - "8002:8000"
+    volumes:
+      - ./models:/app/models:ro
+      - ./logs:/app/logs
+    environment:
+      - CUDA_VISIBLE_DEVICES=all
+      - SGLANG_TP_SIZE=2  # Tensor parallelism
+      - SGLANG_ENABLE_FP8=true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+    networks:
+      - ai-network
+    profiles:
+      - sglang
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7-alpine
+    container_name: deepseek-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - ai-network
+    profiles:
+      - production
+      - caching
+
+  # Monitoring with Grafana and Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: deepseek-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+    restart: unless-stopped
+    networks:
+      - ai-network
+    profiles:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: deepseek-grafana
+    ports:
+      - "3001:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+    restart: unless-stopped
+    networks:
+      - ai-network
+    profiles:
+      - monitoring
+
+  # NVIDIA GPU monitoring
+  dcgm-exporter:
+    image: nvcr.io/nvidia/k8s/dcgm-exporter:3.3.5-3.4.0-ubuntu22.04
+    container_name: deepseek-dcgm
+    ports:
+      - "9400:9400"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+    networks:
+      - ai-network
+    profiles:
+      - monitoring
+
+volumes:
+  redis_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  ai-network:
+    driver: bridge

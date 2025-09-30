@@ -6,6 +6,7 @@ import App from './App'
 import Login from './routes/Login'
 import Register from './routes/Register'
 import Riddles from './routes/Riddles'
+import AIRiddles from './routes/AIRiddles'
 import Trivia from './routes/Trivia'
 import ChessGame from './routes/ChessGame'
 import BrainPuzzles from './routes/BrainPuzzles'
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
   { path: '/login', element: <Login /> },
   { path: '/register', element: <Register /> },
   { path: '/riddles', element: <RequireAuth><Riddles /></RequireAuth> },
+  { path: '/ai-riddles', element: <RequireAuth><AIRiddles /></RequireAuth> },
   { path: '/trivia', element: <RequireAuth><Trivia /></RequireAuth> },
   { path: '/chess', element: <RequireAuth><ChessGame /></RequireAuth> },
   { path: '/brain-puzzles', element: <RequireAuth><BrainPuzzles /></RequireAuth> },
