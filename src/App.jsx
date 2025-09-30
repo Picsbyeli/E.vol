@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import Nav from './components/Nav'
 import MusicBar from './components/MusicBar'
 import AIStatusDashboard from './components/AIStatusDashboard'
@@ -98,6 +98,10 @@ export default function App(){
             </div>
           </div>
         </section>
+        {/* Nested route outlet: child pages render here when navigated (e.g., /riddles) */}
+        <div className="bg-white/50 rounded-xl p-2">
+          <Outlet />
+        </div>
       </main>
       <MusicBar />
       

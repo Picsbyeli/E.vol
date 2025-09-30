@@ -13,6 +13,7 @@ import BrainPuzzles from './routes/BrainPuzzles'
 import Strategy from './routes/Strategy'
 import WordGame from './routes/WordGame'
 import EmojiGuess from './routes/EmojiGuess'
+import NotFound from './routes/NotFound'
 
 // Minimal inline AuthProvider to avoid extra files:
 import { createContext, useContext, useEffect, useState } from 'react'
@@ -44,17 +45,24 @@ import RequireAuth from './components/RequireAuth'
 import { ThemeProvider } from './components/ThemeProvider'
 
 const router = createBrowserRouter([
-  { path: '/', element: <App /> },
-  { path: '/login', element: <Login /> },
-  { path: '/register', element: <Register /> },
-  { path: '/riddles', element: <RequireAuth><Riddles /></RequireAuth> },
-  { path: '/ai-riddles', element: <RequireAuth><AIRiddles /></RequireAuth> },
-  { path: '/trivia', element: <RequireAuth><Trivia /></RequireAuth> },
-  { path: '/chess', element: <RequireAuth><ChessGame /></RequireAuth> },
-  { path: '/brain-puzzles', element: <RequireAuth><BrainPuzzles /></RequireAuth> },
-  { path: '/strategy', element: <RequireAuth><Strategy /></RequireAuth> },
-  { path: '/word-game', element: <RequireAuth><WordGame /></RequireAuth> },
-  { path: '/emoji-guess', element: <RequireAuth><EmojiGuess /></RequireAuth> },
+  {
+    path: '/',
+    element: <App />, // App should render an <Outlet /> where children show
+    errorElement: <NotFound />,
+    children: [
+      { path: 'login', element: <Login /> },
+      { path: 'register', element: <Register /> },
+      { path: 'riddles', element: <RequireAuth><Riddles /></RequireAuth> },
+      { path: 'ai-riddles', element: <RequireAuth><AIRiddles /></RequireAuth> },
+      { path: 'trivia', element: <RequireAuth><Trivia /></RequireAuth> },
+      { path: 'chess', element: <RequireAuth><ChessGame /></RequireAuth> },
+      { path: 'brain-puzzles', element: <RequireAuth><BrainPuzzles /></RequireAuth> },
+      { path: 'strategy', element: <RequireAuth><Strategy /></RequireAuth> },
+      { path: 'word-game', element: <RequireAuth><WordGame /></RequireAuth> },
+      { path: 'emoji-guess', element: <RequireAuth><EmojiGuess /></RequireAuth> },
+      { path: '*', element: <NotFound /> },
+    ],
+  },
 ])
 
 createRoot(document.getElementById('root')).render(
