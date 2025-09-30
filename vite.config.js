@@ -3,6 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  server: { port: 5173 },
-  base: '/E.vol/', // MUST match the repository name for GitHub Pages
+  base: '/E.vol/', // must match the repo name for GitHub Pages
 })
