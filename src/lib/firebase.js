@@ -19,6 +19,10 @@ if (!firebaseConfig.apiKey) {
   console.error('[Firebase] Missing environment variables. Check .env or GitHub Actions secrets.')
 }
 
+// Debug log (safe to expose: Firebase Web API keys are public identifiers)
+// If any field is undefined in production, verify the GitHub Actions secrets and .env creation step.
+console.log('[E.VOL][Firebase] Loaded config:', firebaseConfig)
+
 const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 export const googleProvider = new GoogleAuthProvider()
