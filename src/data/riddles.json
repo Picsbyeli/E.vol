@@ -1,0 +1,72 @@
+[
+  {
+    "q": "What has to be broken before you can use it?",
+    "a": "An egg",
+    "difficulty": "Easy",
+    "category": "Logic",
+    "hint": "Think about something in your breakfast."
+  },
+  {
+    "q": "I'm tall when I'm young, and I'm short when I'm old. What am I?",
+    "a": "A candle",
+    "difficulty": "Easy", 
+    "category": "Logic",
+    "hint": "It burns and melts as it ages."
+  },
+  {
+    "q": "What month of the year has 28 days?",
+    "a": "All of them",
+    "difficulty": "Medium",
+    "category": "Trick",
+    "hint": "Don't think about February specifically."
+  },
+  {
+    "q": "What can travel around the world while staying in a corner?",
+    "a": "A stamp",
+    "difficulty": "Medium",
+    "category": "Logic",
+    "hint": "It's something you find on mail."
+  },
+  {
+    "q": "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?",
+    "a": "A map",
+    "difficulty": "Hard",
+    "category": "Logic",
+    "hint": "It shows places but doesn't contain them."
+  },
+  {
+    "q": "The more you take, the more you leave behind. What am I?",
+    "a": "Footsteps",
+    "difficulty": "Medium",
+    "category": "Word",
+    "hint": "Think about walking somewhere."
+  },
+  {
+    "q": "What has keys but no locks, space but no room, and you can enter but not go inside?",
+    "a": "A keyboard",
+    "difficulty": "Hard",
+    "category": "Technology",
+    "hint": "You use it every day with computers."
+  },
+  {
+    "q": "What gets wet while drying?",
+    "a": "A towel",
+    "difficulty": "Easy",
+    "category": "Logic",
+    "hint": "It helps you after a shower."
+  },
+  {
+    "q": "I'm light as a feather, yet the strongest person can't hold me for five minutes. What am I?",
+    "a": "Your breath",
+    "difficulty": "Hard",
+    "category": "Logic",
+    "hint": "You do this automatically without thinking."
+  },
+  {
+    "q": "What begins with T, ends with T, and has T in it?",
+    "a": "A teapot",
+    "difficulty": "Medium",
+    "category": "Word",
+    "hint": "It's used for making a hot beverage."
+  }
+]

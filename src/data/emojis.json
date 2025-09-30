@@ -1,0 +1,86 @@
+[
+  {
+    "emojis": "🍕🚗",
+    "answer": "PIZZA DELIVERY",
+    "category": "Food & Transport",
+    "difficulty": "Easy",
+    "hint": "Food brought to your door"
+  },
+  {
+    "emojis": "🎬🍿",
+    "answer": "MOVIE THEATER",
+    "category": "Entertainment",
+    "difficulty": "Easy",
+    "hint": "Where you watch films with snacks"
+  },
+  {
+    "emojis": "🌙⭐🛌",
+    "answer": "GOOD NIGHT",
+    "category": "Daily Life",
+    "difficulty": "Medium",
+    "hint": "What you say before sleeping"
+  },
+  {
+    "emojis": "🔥💃",
+    "answer": "HOT DANCE",
+    "category": "Music & Dance",
+    "difficulty": "Medium",
+    "hint": "Energetic dancing performance"
+  },
+  {
+    "emojis": "🏠🔑",
+    "answer": "HOUSE KEY",
+    "category": "Home",
+    "difficulty": "Easy",
+    "hint": "What unlocks your door"
+  },
+  {
+    "emojis": "🎮👾🕹️",
+    "answer": "VIDEO GAME",
+    "category": "Gaming",
+    "difficulty": "Easy",
+    "hint": "Electronic entertainment"
+  },
+  {
+    "emojis": "🌈☔🌤️",
+    "answer": "RAINBOW AFTER RAIN",
+    "category": "Weather",
+    "difficulty": "Hard",
+    "hint": "Beautiful natural phenomenon"
+  },
+  {
+    "emojis": "💍💒👰",
+    "answer": "WEDDING",
+    "category": "Life Events",
+    "difficulty": "Medium",
+    "hint": "Marriage ceremony"
+  },
+  {
+    "emojis": "🎂🎉🎈",
+    "answer": "BIRTHDAY PARTY",
+    "category": "Celebration",
+    "difficulty": "Easy",
+    "hint": "Annual celebration of your birth"
+  },
+  {
+    "emojis": "🏃‍♂️💨🏁",
+    "answer": "RUNNING RACE",
+    "category": "Sports",
+    "difficulty": "Medium",
+    "hint": "Athletic competition on foot"
+  },
+  {
+    "emojis": "📚👨‍🎓🎓",
+    "answer": "GRADUATION",
+    "category": "Education",
+    "difficulty": "Medium",
+    "hint": "Completing your studies"
+  },
+  {
+    "emojis": "🌍✈️🧳",
+    "answer": "WORLD TRAVEL",
+    "category": "Travel",
+    "difficulty": "Hard",
+    "hint": "Exploring different countries"
+  }
+]

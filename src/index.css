@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reserve room for bottom music bar on mobile */
+body { padding-bottom: 110px; }
+@media (min-width: 640px) { body { padding-bottom: 90px; } }

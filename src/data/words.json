@@ -1,0 +1,62 @@
+[
+  {
+    "word": "JAVASCRIPT",
+    "category": "Programming",
+    "difficulty": "Medium",
+    "hint": "A popular web programming language"
+  },
+  {
+    "word": "RAINBOW",
+    "category": "Nature",
+    "difficulty": "Easy",
+    "hint": "Appears after rain with sunshine"
+  },
+  {
+    "word": "TELESCOPE",
+    "category": "Science",
+    "difficulty": "Hard",
+    "hint": "Used to observe distant objects"
+  },
+  {
+    "word": "BUTTERFLY",
+    "category": "Animals",
+    "difficulty": "Medium",
+    "hint": "Colorful insect that transforms from a caterpillar"
+  },
+  {
+    "word": "MOUNTAIN",
+    "category": "Geography",
+    "difficulty": "Easy",
+    "hint": "Large natural elevation of land"
+  },
+  {
+    "word": "SYMPHONY",
+    "category": "Music",
+    "difficulty": "Hard",
+    "hint": "Large orchestral composition"
+  },
+  {
+    "word": "KITCHEN",
+    "category": "House",
+    "difficulty": "Easy",
+    "hint": "Room where food is prepared"
+  },
+  {
+    "word": "ALGORITHM",
+    "category": "Programming",
+    "difficulty": "Hard",
+    "hint": "Step-by-step procedure for solving problems"
+  },
+  {
+    "word": "BICYCLE",
+    "category": "Transportation",
+    "difficulty": "Medium",
+    "hint": "Two-wheeled vehicle powered by pedaling"
+  },
+  {
+    "word": "LIBRARY",
+    "category": "Education",
+    "difficulty": "Easy",
+    "hint": "Place where books are stored and borrowed"
+  }
+]
