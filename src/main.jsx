@@ -41,7 +41,8 @@ function Provider({ children }) {
   return <AuthCtx.Provider value={value}>{children}</AuthCtx.Provider>
 }
 
-import RequireAuth from './components/RequireAuth'
+// Removed RequireAuth for guest access; keep component import commented if needed later
+// import RequireAuth from './components/RequireAuth'
 import { ThemeProvider } from './components/ThemeProvider'
 
 const router = createBrowserRouter([
@@ -52,14 +53,14 @@ const router = createBrowserRouter([
     children: [
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },
-      { path: 'riddles', element: <RequireAuth><Riddles /></RequireAuth> },
-      { path: 'ai-riddles', element: <RequireAuth><AIRiddles /></RequireAuth> },
-      { path: 'trivia', element: <RequireAuth><Trivia /></RequireAuth> },
-      { path: 'chess', element: <RequireAuth><ChessGame /></RequireAuth> },
-      { path: 'brain-puzzles', element: <RequireAuth><BrainPuzzles /></RequireAuth> },
-      { path: 'strategy', element: <RequireAuth><Strategy /></RequireAuth> },
-      { path: 'word-game', element: <RequireAuth><WordGame /></RequireAuth> },
-      { path: 'emoji-guess', element: <RequireAuth><EmojiGuess /></RequireAuth> },
+  { path: 'riddles', element: <Riddles /> },
+  { path: 'ai-riddles', element: <AIRiddles /> },
+  { path: 'trivia', element: <Trivia /> },
+  { path: 'chess', element: <ChessGame /> },
+  { path: 'brain-puzzles', element: <BrainPuzzles /> },
+  { path: 'strategy', element: <Strategy /> },
+  { path: 'word-game', element: <WordGame /> },
+  { path: 'emoji-guess', element: <EmojiGuess /> },
       { path: '*', element: <NotFound /> },
     ],
   },

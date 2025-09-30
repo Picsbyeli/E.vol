@@ -1,7 +1,6 @@
 import { Link, Outlet } from 'react-router-dom'
 import Nav from './components/Nav'
 import MusicBar from './components/MusicBar'
-import AIStatusDashboard from './components/AIStatusDashboard'
 import Leaderboard from './components/Leaderboard'
 import StatsHeader from './components/StatsHeader'
 
@@ -103,10 +102,7 @@ export default function App(){
           <Outlet />
         </div>
       </main>
-      <MusicBar />
-      
-      {/* AI Status Dashboard */}
-      <AIStatusDashboard />
+  <MusicBar />
     </div>
   )
 }
